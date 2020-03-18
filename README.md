@@ -4,7 +4,7 @@ Spring 核心知识复习(基于4.3.18版本,囊括SpringMVC)
 代码基于<<Spring 教程>> From: https://www.w3cschool.cn/wkspring/ ,thx!
 
 # 目录结构
-
+```
 |--Spring 概述
 |--Spring 体系结构
 |--Spring 环境配置
@@ -50,3 +50,4 @@ Spring 核心知识复习(基于4.3.18版本,囊括SpringMVC)
     |--Spring 静态页面例子
     |--Spring 异常处理例子
     |--Spring 使用 Log4J 记录日志
+```
