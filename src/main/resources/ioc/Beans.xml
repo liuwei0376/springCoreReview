@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       <!--default-init-method="init"
+       default-destroy-method="destory"-->
+
+    <!--如上述最后2行代码，如果你有太多具有相同名称的初始化或者销毁方法的 Bean，那么你不需要在每一个 bean 上声明初始化方法和销毁方法。框架使用 元素中的 default-init-method 和 default-destroy-method 属性提供了灵活地配置这种情况-->
+
+    <bean id="helloWorld"
+          class="com.toturialspoint.c01_IOC.s01_BeanFactory.HelloWorld" scope="singleton">
+        <property name="message" value="Hello JINGYang"/>
+    </bean>
+
+    <!--你已经看到了如何把基于 XML 的配置元数据提供给容器，但是让我们看看另一个基于 XML 配置文件的例子，这个配置文件中有不同的 bean 定义，包括延迟初始化，初始化方法和销毁方法的：-->
+    <!-- A simple bean definition
+    <bean id="..." class="...">
+         collaborators and configuration for this bean go here
+    </bean>
+
+     A bean definition with lazy init set on
+    <bean id="..." class="..." lazy-init="true">
+         collaborators and configuration for this bean go here
+    </bean>
+
+     A bean definition with initialization method
+    <bean id="..." class="..." init-method="...">
+         collaborators and configuration for this bean go here
+    </bean>
+
+     A bean definition with destruction method
+    <bean id="..." class="..." destroy-method="...">
+         collaborators and configuration for this bean go here
+    </bean>
+     more bean definitions go here -->
+
+    <bean id="helloWorldSingleton"
+          class="com.toturialspoint.c01_IOC.s01_BeanFactory.HelloWorld" scope="singleton">
+    </bean>
+
+    <bean id="helloWorldPrototype"
+          class="com.toturialspoint.c01_IOC.s01_BeanFactory.HelloWorld" scope="prototype">
+    </bean>
+
+    <bean id="helloWorldLifecycleTest"
+          class="com.toturialspoint.c01_IOC.s01_BeanFactory.HelloWorld"
+          init-method="init" destroy-method="destory">
+        <property name="message" value="Hello SmallDove"/>
+    </bean>
+
+    <bean id="helloWorldBeanPostProcessorTest"
+          class="com.toturialspoint.c01_IOC.s01_BeanFactory.HelloWorld"
+          init-method="init" destroy-method="destory">
+        <property name="message" value="Hello David!"/>
+    </bean>
+    <bean class="com.toturialspoint.c01_IOC.s01_BeanFactory.p03_beanpostprocessor.InitHelloWorld"/>
+
+</beans>
